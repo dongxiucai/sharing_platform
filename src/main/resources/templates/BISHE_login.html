@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>登陆系统</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	</head>
+	<script type="text/javascript">
+		// 登陆框验证
+        window.onload = function() {
+            $("#sub").prop('disabled', true)
+        }
+        
+        function pass() {
+			var use = $("#username").val()
+			var pwd  = $("#password").val()
+			if(use!=""){
+			    if(pwd!=""){
+                    $("#sub").prop('disabled', false)
+				}else {
+                    $("#sub").prop('disabled', true)
+				}
+			}else {
+                $("#sub").prop('disabled', true)
+			}
+        }
+
+	</script>
+
+	<body>
+		<center>
+			<div class="jumbotron">
+				<h1>校园资源共享平台</h1>
+				<p>共同分享，共同学习，共同进步</p>
+				<p>传递知识，传递分享</p>
+				<p>资源有限，共享无限</p>
+			</div>
+			<div style="width: 300px;">
+				<form action="/login/loginUser" method="post">
+					<div class="form-group">
+						<input type="username" class="form-control" name="username" id="username" placeholder="用户名" onmouseout="pass()" />
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" name="password" id="password" placeholder="密码" onmouseout="pass()" />
+					</div>
+					<button type="submit" id="sub" class="btn btn-default btn-success" style="width: 300px;">登&nbsp;&nbsp;&nbsp;陆</button>
+				</form>
+			</div>
+		</center>
+
+		<script src="/js/jquery-3.2.1.js" type="text/javascript"></script>
+		<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	</body>
+</html>
